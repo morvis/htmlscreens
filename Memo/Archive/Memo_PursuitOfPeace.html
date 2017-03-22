@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="dashboard.css">
+  
+  <style>
+@charset "UTF-8";
+
+
+/* dashboard.css reset */
+body { background: transparent !important; }
+h1, h2, h3, h4, h5 { text-shadow: none; padding-left: 0; color: inherit;}
+* { -webkit-user-select: auto; }
+
+/*GLOBAL*/
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: #333;
+  background: #e4e4e4;
+  line-height: 1.3;
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.screen-wrap {
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 10px 10px 40px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #CFCFCF;
+  min-height: 100%;
+  border-top: none;
+  border-bottom: none;
+}
+
+a {
+  color: #26A;
+  text-decoration: none;
+}
+
+ul {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+li {
+  margin: 0.5em 0;
+}
+
+p {
+  margin: 1em 0;
+  word-break: break-word;
+}
+
+h1 {
+  margin: 5px 0 0;
+  text-align: center;
+  font-size: 1.75em;
+}
+
+h2 {
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #26A;
+  margin: 1em -10px;
+  padding: 0.8em 10px;
+}
+
+h3 {
+  margin: 1.5em 0 0.1em;
+}
+
+table {
+  margin: 1em 0;
+  font-size: 1em;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  max-width: 100%;
+}
+
+td {
+  border: 1px solid #ccc;
+  padding: 1px 2px;
+}
+
+@media screen and (max-width: 320px) {
+  table {
+    font-size: 0.9em;
+  }
+  td {
+    border: 1px solid #ccc;
+    padding: 2px 4px;
+  }
+}
+
+
+/*INDEX PAGE*/
+
+
+.topic-links {
+  padding: 0;
+}
+
+.topic-links a {
+  display: block;
+  margin: 1em 0;
+  padding: 0.8em 10px;
+  color: #fff;
+  background-color: #004B87;
+  background-image: url('[[icon-arrow-white.png]]');
+  background-size: 16px;
+  background-position: 98% center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.index-logo {
+  display: block;
+  margin: 15px auto 30px;
+  border-radius: 5px;
+  max-height: 120px;
+}
+
+
+/*TOPIC PAGE*/
+
+
+.shortcut-index {
+  margin: 0;
+  padding-left: 1.5em;
+}
+
+.shortcut-index li {
+  margin: 10px 0;
+  font-size: 1em;
+  color: #26A;
+  text-decoration: none;
+}
+
+.to-top {
+  margin: 1em 0;
+  display: inline-block;
+}
+
+
+/*TOPIC PAGE: ACCORDIONS*/
+
+
+.button-accordion {
+  margin: 15px 0 0;
+  padding: 14px 40px 14px 10px;
+  color: #FFF;
+  background-color: #26A;
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  text-align: left;
+}
+
+.button-accordion:after {
+  content: '▼';
+  font-size: 1.3em;
+  position: absolute;
+  bottom: 9px;
+  right: 15px;
+  color: #fff;
+}
+
+.button-accordion.open:after {
+  content: '▲';
+}
+
+.box-accordion {
+  background: #FFF;
+  padding: 10px 10px 10px;
+  word-wrap: break-word;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  display: none;
+}
+
+      /* CUSTOM COLORS */
+
+      h2,
+      .topic-links a,
+      .button-accordion {
+        background-color: #4276A0;
+      }
+
+      a,
+      .shortcut-index li {
+        color: #78A22F;
+      }
+
+</style>
+  
+  <style type="text/css">
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 95%;
+  }
+  body {
+    background: #002d6c;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+  }
+  #content {
+    min-height: 100%;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: 1px solid blue;
+    margin: 5px;
+    padding: 10px;
+    background: #f7f7f8;
+  }
+
+  h1 {
+    font-size: 110%;
+    line-height:1em;
+  }
+  h2 {
+    font-size: 85%;
+    line-height: 1.2em;
+    padding:0;
+    padding-bottom: .5em;
+    margin:0;
+    margin-left: 15px;
+  }
+  h3 {
+    line-height: 1em;
+    font-size: 100%;
+    padding: 15px;
+    margin:0;
+  }
+
+  p {
+    padding:0;
+    margin:1em;
+    margin-left: 30px;
+  }
+ 
+  
+  .disclaimer { background-color: #fffcaa;font-weight: bold;border-radius: 15px;padding: 10px;font-size: 14px;margin-bottom: 15px; }
+  .peace-header { font-weight: bold;font-size: 22px;line-height: 29px;text-align: center; }
+  .button-accordion {
+	  background-color: #000;
+  }
+  .box-accordion {
+  	background: #ccc;
+	border-radius: 0 0 15px 15px;
+  }
+  </style>
+  <title></title>
+</head>
+<body>
+<!-- body -->
+<div id="content">
+  <!--<div id="centeredmenu">
+    <ul>
+      <li><a id="mon-link" class="nav-first" href="#mon">Mon</a></li>    
+      <li><a id="tue-link" href="#wed">Tue</a></li>
+      <li><a id="wed-link" class="nav-last" href="#wed">Wed</a></li>
+    </ul>
+  </div>-->
+     <div style="clear: both;">&nbsp;</div>
+     <div class="peace-header">PURSUIT OF PEACE</div>
+     <br><br>
+     <strong>DIRECT TALKS: The Key to Sustainable Peace</strong><br>
+   Israel is committed to a two-state solution - a Jewish state living side-by-side in peace with a demilitarized Palestinian state. The United States must send a clear message that this goal can only be achieved through direct negotiations between the parties. Unhelpful resolutions at the United Nations Security Council and unilateral Palestinian actions at other international bodies will only undermine the prospects for peace. America should work together with Israel to counter Palestinian terrorism and incitement to violence, and urge the Palestinians to return to the negotiating table.
+   <br><br>
+   Direct, bilateral negotiations are the only viable path to achieve an enduring peace. Israelis and Palestinians can only reach a viable peace if they enter negotiations willingly, make key compromises, feel vested in the peace process, and dedicate themselves to implementing a solution. Any peace agreement will require significant concessions from both sides and can only endure with the support of Israeli and Palestinian leadership, along with the people they represent. If the international community allows the Palestinians to abandon negotiations, and yields to their demands irrespective of Israeli concerns, it will encourage Palestinian intransigence and undermine the prospects for an enduring two-state solution. 
+<br><br>
+Regional states can play a constructive role. Israel remains undeterred in its desire for peace with both the Palestinians and its other Arab neighbors - a peace which would benefit all parties. In the past, Israel made significant security and territorial compromises to achieve historic peace treaties with Egypt in 1979 and with Jordan in 1994, to the great benefit of all three countries. In this era of unprecedented chaos in the Middle East, the United States should encourage its Arab allies to take concrete steps towards peace with, recognition of and normalization of relations with Israel. Arab states should also play a constructive role in supporting Israeli-Palestinian peace efforts, including encouraging Palestinian leaders to return to the negotiating table with Israel. 
+<br><br>
+Even before the establishment of Israel in 1948, the Jewish community in thenBritish Mandatory Palestine expressed its desire to live in peace with its Arab neighbors. Since its founding amid the ashes of war, Israel has repeatedly demonstrated its willingness to make bold, painful concessions, such as withdrawingfrom land and forcibly removing its citizens, in order to achieve peace.
+<br><br>
+<h2 class="button-accordion">1918-1919</h2>
+<div class="box-accordion">
+<strong>EARLY ZIONISTS REACH OUT TO ARABS</strong><br>
+Chaim Weizmann, who was to become the first president of Israel, leads a mission to Cairo to express the Jewish people's desire to live in harmony with the Arabs.
+</div>
+<h2 class="button-accordion">1947</h2>
+<div class="box-accordion">
+<strong>JEWS ACCEPT U.N. PARTITION PLAN</strong><br>
+The Jewish community of Palestine and Zionists worldwide accept the partition plan approved by the United Nations that would create a Jewish state alongside an Arab state. The Arab states reject the U.N. resolution and prepare for war.
+</div>
+<h2 class="button-accordion">1948</h2>
+<div class="box-accordion">
+<strong>A STATE IS BORN</strong><br>
+Declaring Independence, Ben-Gurion says Israel will "extend the hand of peace to all its neighbors" as well as grant "full and equal citizenship and due representation" for the non-Jewish population. In response, the armies of five Arab states invade.
+</div>
+<h2 class="button-accordion">1967</h2>
+<div class="box-accordion">
+<strong>ISRAEL'S OFFER TO WITHDRAW IS REJECTED</strong><br>
+Days after successfully defending itself in the SixDay War, Israel offers to return captured territories in return for peace treaties. The Arab states reject the offer.
+</div>
+<h2 class="button-accordion">1979</h2>
+<div class="box-accordion">
+<strong>ISRAEL SIGNS EGYPTISRAEL PEACE TREATY</strong><br>
+Following Camp David accord, Israel agrees to return the entire Sinai Peninsula, an area almost three times the size of Israel, to Egypt. In 1979, Egypt and Israel sign a peace treaty - the first between Israel and an Arab country.
+</div>
+<h2 class="button-accordion">1993</h2>
+<div class="box-accordion">
+<strong>ISRAEL SIGNS OSLO AGREEMENT</strong><br>
+Israel grants the Palestinians unprecedented authority over Gaza and parts of the West Bank, and starts talks aimed at ending the conflict with the Palestinians.
+</div>
+<h2 class="button-accordion">1994</h2>
+<div class="box-accordion">
+<strong>ISRAEL ESTABLISHES PEACE WITH JORDAN</strong><br>
+Jordan's King Hussein and Israel's Yitzhak Rabin sign a peace treaty, making Jordan the second Arab state to recognize Israel.
+</div>
+<h2 class="button-accordion">2000</h2>
+<div class="box-accordion">
+<strong>ISRAEL UNILATERALLY WITHDRAWS FROM LEBANON</strong><br>
+With backing from the United States, Israel unilaterally withdraws from southern Lebanon after 18 years of maintaining a security zone to prevent attacks on its northern communities. Israel's withdrawal is met with a massive military buildup by Hezbollah.
+<br><br>
+<strong>ISRAEL MAKES HISTORIC PEACE OFFER</strong><br>
+Israel accepts U.S. President Bill Clinton's proposals for peace with the Palestinians. Israel would cede all of Gaza, 96 percent of the West Bank and additional territory from within pre-1967 Israel, recognize an independent Palestinian state and cede parts of eastern Jerusalem to serve as the Palestinian capital. Palestinian leader Yasser Arafat rejects the offer amidst the worst wave of Palestinian terrorism in Israel's history.
+</div>
+<h2 class="button-accordion">2005</h2>
+<div class="box-accordion">
+<strong>ISRAEL REMOVES ALL SOLDIERS, CITIZENS FROM GAZA</strong><br>
+With U.S. support, Israel takes a historic step and unilaterally withdraws from Gaza and parts of the West Bank, providing the Palestinians the chance to self-govern and prove their intention to fight terrorism.
+</div>
+<h2 class="button-accordion">2007</h2>
+<div class="box-accordion">
+<strong>ISRAEL EXTENDS HAND IN PEACE AT ANNAPOLIS CONFERENCE</strong><br>
+At the U.S.-sponsored Annapolis conference, Israel reiterates its commitment to peace negotiations with the Palestinians and Arab states.
+</div>
+<h2 class="button-accordion">2008</h2>
+<div class="box-accordion">
+<strong>ISRAEL MAKES FAR-REACHING OFFER TO END THE CONFLICT</strong><br>
+Israeli Prime Minister Ehud Olmert offers PA President Mahmoud Abbas 93.5% of the West Bank with land swaps. Abbas did not respond to the offer. In a later TV interview, Abbas said that he "rejected [the offer] out of hand."
+</div>
+<h2 class="button-accordion">2009</h2>
+<div class="box-accordion">
+<strong>ISRAEL ENDORSES DEMILITARIZED PALESTINIAN STATE; IMPLEMENTS SETTLEMENT MORATORIUM</strong><br>
+Israeli Prime Minister Benjamin Netanyahu formally endorses the creation of a demilitarized Palestinian state and implements a 10-month moratorium on the construction of new homes in the West Bank. Palestinians refuse to hold talks despite these gestures.
+</div>
+<h2 class="button-accordion">2011-2012</h2>
+<div class="box-accordion">
+<strong>ISRAEL REPEATEDLY CALLS FOR DIRECT TALKS WITH PALESTINIANS</strong><br>
+Prime Minister Netanyahu repeatedly calls for the Palestinians to return to direct peace talks. Palestinian leaders rebuff Israeli entreaties, set preconditions for talks and turn to the United Nations for recognition of statehood.
+</div>
+<h2 class="button-accordion">2013-2014</h2>
+<div class="box-accordion">
+<strong>PEACE TALKS BREAK DOWN FOLLOWING FORMATION OF PALESTINIAN UNITY GOVERNMENT WITH HAMAS</strong><br>
+Israel makes painful sacrifices to secure the resumption of peace talks, including releasing 78 Palestinian terrorists. Ultimately, the talks failed to yield any tangible results and break down when PA President Mahmoud Abbas enters into a unity government with the terrorist group Hamas.
+</div>
+<h2 class="button-accordion">2015-2016</h2>
+<div class="box-accordion">
+<strong>ISRAEL CONTINUES TO CALL FOR PEACE TALKS WITH PALESTINIANS</strong><br>
+Prime Minister Netanyahu continues to call for direct peace talks with no preconditions. Palestinian leadership instead attempts to isolate Israel and seek achievements at the U.N. and other international bodies.
+</div>
+<br><br>
+To enhance the prospects for peace, the United States should remain committed to the principles that guided previous successful negotiations:
+<ul>
+<li>Talks must be direct and bilateral.</li>
+<li>A solution cannot be imposed on the parties.</li>
+<li>Both sides must be willing to make key compromises.</li>
+<li>Disagreements should be resolved privately.</li>
+<li>The United States must support and work closely with Israel.</li>
+</ul>
+</div>
+
+<script>
+ $(function(){
+   $('.button-accordion').click(function(){
+     $(this).next().slideToggle();
+       $(this).toggleClass('open');
+       });
+      });
+</script>
+</body>
+</html>
+
+

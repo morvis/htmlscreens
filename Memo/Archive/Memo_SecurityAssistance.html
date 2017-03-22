@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="dashboard.css">
+  
+  <style>
+@charset "UTF-8";
+
+
+/* dashboard.css reset */
+body { background: transparent !important; }
+h1, h2, h3, h4, h5 { text-shadow: none; padding-left: 0; color: inherit;}
+* { -webkit-user-select: auto; }
+
+/*GLOBAL*/
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: #333;
+  background: #e4e4e4;
+  line-height: 1.3;
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.screen-wrap {
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 10px 10px 40px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #CFCFCF;
+  min-height: 100%;
+  border-top: none;
+  border-bottom: none;
+}
+
+a {
+  color: #26A;
+  text-decoration: none;
+}
+
+ul {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+li {
+  margin: 0.5em 0;
+}
+
+p {
+  margin: 1em 0;
+  word-break: break-word;
+}
+
+h1 {
+  margin: 5px 0 0;
+  text-align: center;
+  font-size: 1.75em;
+}
+
+h2 {
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #26A;
+  margin: 1em -10px;
+  padding: 0.8em 10px;
+}
+
+h3 {
+  margin: 1.5em 0 0.1em;
+}
+
+table {
+  margin: 1em 0;
+  font-size: 1em;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  max-width: 100%;
+}
+
+td {
+  border: 1px solid #ccc;
+  padding: 1px 2px;
+}
+
+@media screen and (max-width: 320px) {
+  table {
+    font-size: 0.9em;
+  }
+  td {
+    border: 1px solid #ccc;
+    padding: 2px 4px;
+  }
+}
+
+
+/*INDEX PAGE*/
+
+
+.topic-links {
+  padding: 0;
+}
+
+.topic-links a {
+  display: block;
+  margin: 1em 0;
+  padding: 0.8em 10px;
+  color: #fff;
+  background-color: #004B87;
+  background-image: url('[[icon-arrow-white.png]]');
+  background-size: 16px;
+  background-position: 98% center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.index-logo {
+  display: block;
+  margin: 15px auto 30px;
+  border-radius: 5px;
+  max-height: 120px;
+}
+
+
+/*TOPIC PAGE*/
+
+
+.shortcut-index {
+  margin: 0;
+  padding-left: 1.5em;
+}
+
+.shortcut-index li {
+  margin: 10px 0;
+  font-size: 1em;
+  color: #26A;
+  text-decoration: none;
+}
+
+.to-top {
+  margin: 1em 0;
+  display: inline-block;
+}
+
+
+/*TOPIC PAGE: ACCORDIONS*/
+
+
+.button-accordion {
+  margin: 15px 0 0;
+  padding: 14px 40px 14px 10px;
+  color: #FFF;
+  background-color: #26A;
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  text-align: left;
+}
+
+.button-accordion:after {
+  content: '▼';
+  font-size: 1.3em;
+  position: absolute;
+  bottom: 9px;
+  right: 15px;
+  color: #fff;
+}
+
+.button-accordion.open:after {
+  content: '▲';
+}
+
+.box-accordion {
+  background: #FFF;
+  padding: 10px 10px 10px;
+  word-wrap: break-word;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  display: none;
+}
+
+      /* CUSTOM COLORS */
+
+      h2,
+      .topic-links a,
+      .button-accordion {
+        background-color: #4276A0;
+      }
+
+      a,
+      .shortcut-index li {
+        color: #78A22F;
+      }
+
+</style>
+  
+  <style type="text/css">
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 95%;
+  }
+  body {
+    background: #002d6c;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+  }
+  #content {
+    min-height: 100%;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: 1px solid blue;
+    margin: 5px;
+    padding: 10px;
+    background: #f7f7f8;
+  }
+
+  h1 {
+    font-size: 110%;
+    line-height:1em;
+  }
+  h2 {
+    font-size: 85%;
+    line-height: 1.2em;
+    padding:0;
+    padding-bottom: .5em;
+    margin:0;
+    margin-left: 15px;
+  }
+  h3 {
+    line-height: 1em;
+    font-size: 100%;
+    padding: 15px;
+    margin:0;
+  }
+
+  p {
+    padding:0;
+    margin:1em;
+    margin-left: 30px;
+  }
+ 
+  
+  .disclaimer { background-color: #fffcaa;font-weight: bold;border-radius: 15px;padding: 10px;font-size: 14px;margin-bottom: 15px; }
+  .security-header { font-weight: bold;font-size: 22px;line-height: 29px;text-align: center; }
+  .button-accordion {
+	  background-color: #000;
+  }
+  .box-accordion {
+  	background: #ccc;
+	border-radius: 0 0 15px 15px;
+  }
+  </style>
+  <title></title>
+</head>
+<body>
+<!-- body -->
+<div id="content">
+  <!--<div id="centeredmenu">
+    <ul>
+      <li><a id="mon-link" class="nav-first" href="#mon">Mon</a></li>    
+      <li><a id="tue-link" href="#wed">Tue</a></li>
+      <li><a id="wed-link" class="nav-last" href="#wed">Wed</a></li>
+    </ul>
+  </div>-->
+     <div style="clear: both;">&nbsp;</div>
+     <div class="security-header">U.S. SECURITY ASSISTANCE <br>TO ISRAEL</div>
+     <br><br>
+    The U.S.-Israel relationship is built on an unshakable commitment to shared values and interests. America and Israel are sister democracies dedicated to the rule of law, human rights, and freedoms of speech and religion. The United States has long defined Israel's survival and security as important to its own national interests. Accordingly, America provides Israel with security assistance that helps the Middle East's only democracy defend itself - by itself - against mounting security threats.
+    <br><br>
+    <h2 class="button-accordion">History & Terms</h2>
+    <div class="box-accordion">
+    The United States has supported Israel politically since its inception in 1948. But it was not until the late 1960s that it began to regularly provide security assistance to the Jewish state. Since then, America has consistently provided Israel with security assistance to help it stay strong and deter its enemies.
+    <br><br><strong>Security Assistance:</strong> By means of its annual foreign aid bill, U.S. security assistance to Israel is the most tangible manifestation of American support for the Jewish state. Assistance primarily takes the form of funding for Israel to purchase the arms needed to defend itself from its adversaries.
+ 	<br><br>
+    <strong>QME:</strong> A core element of American policy is to maintain Israel's qualitative military edge (QME) - the ability to counter and defeat any credible conventional military threat while sustaining minimal damages and casualties. In 2008, Congress wrote America's long-standing commitment to Israel's QME into law and required the president to continually assess whether Israel's QME is being maintained.
+    <br><br>
+    <strong>Memoranda of Understanding:</strong> In 1998, the United States and Israel signed their first 10-year agreement to increase security assistance to Israel while phasing out economic aid, worth $21.3 billion. In 2007, America committed to provide $30 billion under a new 10-year Memorandum of Understanding (MOU). And in September 2016, the United States and Israel signed a third 10-year agreement that commits America to provide Israel $38 billion, $5 billion of which for joint missile defense.
+    </div>
+    <br>
+    <h2 class="button-accordion">Serving American Interests</h2>
+    <div class="box-accordion">
+    <strong>Anchor of Stability:</strong> In an increasingly uncertain Middle East, Israel is the one stable democratic ally upon which America can consistently depend. Cooperation between the two countries in intelligence, homeland security, missile defense and counterterrorism has helped the United States meet its growing security challenges. U.S. support for Israel helps deter regional conflict by making clear to potential foes that they cannot defeat the Jewish state.
+    <br><br>
+    <strong>Supporting American Jobs:</strong> Seventy-five percent of security assistance provided to Israel is spent in the United States. This spending boosts the U.S. defense industry and helps support thousands of high-quality American jobs across the country.
+    <br><br>
+    <strong>Israeli Innovation:</strong> As a result of the strong friendship between Israel and the United States, the Israel Defense Forces (IDF) and the U.S. military share technologies and techniques that greatly benefit both nations. Israel has pioneered cutting edge technologies in cyber weapons, unmanned vehicles, sensors and electronic warfare systems, and advanced defenses for military vehicles. In addition, Israeli battlefield medical technologies have saved countless American lives. The innovative use of U.S. military equipment by the IDF, coupled with shared know-how, has helped the U.S. military improve its own equipment and tactics.
+    </div>
+    <br>
+    <h2 class="button-accordion">Crucial to Israel's Security</h2>
+    <div class="box-accordion">
+    <strong>Mounting Threats</strong>: Israel faces a significant array of threats stemming both from direct challenges to the Jewish state and from the growing chaos gripping the region. To its north, Israel confronts terrorist groups including Hezbollah and the Islamic State; to its south, Israel faces Hamas in Gaza while jihadist terrorists roam the Sinai Peninsula. Israel's greatest threat remains Iran, which can use its renewed access to more than $100 billion in frozen assets to help fuel its own military buildup and its support for regional destabilization. These threats, combined with evolving and emerging challenges require Israel to strengthen its armed forces.
+    <br><br>
+    <strong>Increasing Costs:</strong> To deal with the region's mounting threats, Israel - a tiny nation the geographic size of New Jersey - has been forced to spend more on defense as a percentage of its GDP than any other nation in the industrialized world. The rising costs of advanced weaponry only compound Israel's challenges. For example, a single F-35 Joint Strike Fighter will cost Israel more than $110 million, over twice the cost of an F-16 fighter jet purchased under the first U.S.-Israel agreement in 1998.
+    </div>
+    <br><br>
+    <strong>What's Next</strong><br>
+    As part of its strategic alliance with Israel, the United States provides security assistance to the Jewish state under the framework of 10-year MOUs. The latest MOU, announced in 2016, will set increased funding levels of security assistance beginning in 2019 and will help to ensure that Israel can successfully defend itself - by itself.
+</div>
+
+<script>
+ $(function(){
+   $('.button-accordion').click(function(){
+     $(this).next().slideToggle();
+       $(this).toggleClass('open');
+       });
+      });
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="dashboard.css">
+  
+  <style>
+@charset "UTF-8";
+
+
+/* dashboard.css reset */
+body { background: transparent !important; }
+h1, h2, h3, h4, h5 { text-shadow: none; padding-left: 0; color: inherit;}
+* { -webkit-user-select: auto; }
+
+/*GLOBAL*/
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: #333;
+  background: #e4e4e4;
+  line-height: 1.3;
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.screen-wrap {
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 10px 10px 40px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #CFCFCF;
+  min-height: 100%;
+  border-top: none;
+  border-bottom: none;
+}
+
+a {
+  color: #26A;
+  text-decoration: none;
+}
+
+ul {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+li {
+  margin: 0.5em 0;
+}
+
+p {
+  margin: 1em 0;
+  word-break: break-word;
+}
+
+h1 {
+  margin: 5px 0 0;
+  text-align: center;
+  font-size: 1.75em;
+}
+
+h2 {
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #26A;
+  margin: 1em -10px;
+  padding: 0.8em 10px;
+}
+
+h3 {
+  margin: 1.5em 0 0.1em;
+}
+
+table {
+  margin: 1em 0;
+  font-size: 1em;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  max-width: 100%;
+}
+
+td {
+  border: 1px solid #ccc;
+  padding: 1px 2px;
+}
+
+@media screen and (max-width: 320px) {
+  table {
+    font-size: 0.9em;
+  }
+  td {
+    border: 1px solid #ccc;
+    padding: 2px 4px;
+  }
+}
+
+
+/*INDEX PAGE*/
+
+
+.topic-links {
+  padding: 0;
+}
+
+.topic-links a {
+  display: block;
+  margin: 1em 0;
+  padding: 0.8em 10px;
+  color: #fff;
+  background-color: #004B87;
+  background-image: url('[[icon-arrow-white.png]]');
+  background-size: 16px;
+  background-position: 98% center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.index-logo {
+  display: block;
+  margin: 15px auto 30px;
+  border-radius: 5px;
+  max-height: 120px;
+}
+
+
+/*TOPIC PAGE*/
+
+
+.shortcut-index {
+  margin: 0;
+  padding-left: 1.5em;
+}
+
+.shortcut-index li {
+  margin: 10px 0;
+  font-size: 1em;
+  color: #26A;
+  text-decoration: none;
+}
+
+.to-top {
+  margin: 1em 0;
+  display: inline-block;
+}
+
+
+/*TOPIC PAGE: ACCORDIONS*/
+
+
+.button-accordion {
+  margin: 15px 0 0;
+  padding: 14px 40px 14px 10px;
+  color: #FFF;
+  background-color: #26A;
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  text-align: left;
+}
+
+.button-accordion:after {
+  content: '▼';
+  font-size: 1.3em;
+  position: absolute;
+  bottom: 9px;
+  right: 15px;
+  color: #fff;
+}
+
+.button-accordion.open:after {
+  content: '▲';
+}
+
+.box-accordion {
+  background: #FFF;
+  padding: 10px 10px 10px;
+  word-wrap: break-word;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  display: none;
+}
+
+      /* CUSTOM COLORS */
+
+      h2,
+      .topic-links a,
+      .button-accordion {
+        background-color: #4276A0;
+      }
+
+      a,
+      .shortcut-index li {
+        color: #78A22F;
+      }
+
+</style>
+  
+  <style type="text/css">
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 95%;
+  }
+  body {
+    background: #002d6c;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+  }
+  #content {
+    min-height: 100%;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: 1px solid blue;
+    margin: 5px;
+    padding: 10px;
+    background: #f7f7f8;
+  }
+
+  h1 {
+    font-size: 110%;
+    line-height:1em;
+  }
+  h2 {
+    font-size: 85%;
+    line-height: 1.2em;
+    padding:0;
+    padding-bottom: .5em;
+    margin:0;
+    margin-left: 15px;
+  }
+  h3 {
+    line-height: 1em;
+    font-size: 100%;
+    padding: 15px;
+    margin:0;
+  }
+
+  p {
+    padding:0;
+    margin:1em;
+    margin-left: 30px;
+  }
+ 
+  
+  .disclaimer { background-color: #fffcaa;font-weight: bold;border-radius: 15px;padding: 10px;font-size: 14px;margin-bottom: 15px; }
+  .partner-header { background-color: #536d4a;color: #fff;font-size: 22px;line-height: 29px;text-align: center;padding: 15px;border-radius: 15px; }
+  .partner-big { font-size: 24px;line-height: 31px;font-weight: bold; }
+  .partner-quote { color: #536d4a;font-weight: bold; }
+  .button-accordion {
+	  background-color: #536d4a;
+  }
+  .box-accordion {
+  	background: #b9cfb1;
+	border-radius: 0 0 15px 15px;
+  }
+  </style>
+  <title></title>
+</head>
+<body>
+<!-- body -->
+<div id="content">
+  <!--<div id="centeredmenu">
+    <ul>
+      <li><a id="mon-link" class="nav-first" href="#mon">Mon</a></li>    
+      <li><a id="tue-link" href="#wed">Tue</a></li>
+      <li><a id="wed-link" class="nav-last" href="#wed">Wed</a></li>
+    </ul>
+  </div>-->
+     <div style="clear: both;">&nbsp;</div>
+     <div class="partner-header"><span class="partner-big">ENERGY SECURITY</span> AND<br><span class="partner-big">CLEAN TECHNOLOGY</span></div>
+     <br>
+     The United States and Israel are working together like never before on energy security and clean technology. The governments, along with their respective business sectors, are partnering to promote new energy solutions to ensure the energy security of both nations. This important work helps reduce dependence on petroleum, encourage the pursuit of sustainable technologies to decrease negative environmental impacts, and spur the development of new resources that strengthen the energy independence of the United States and Israel.
+     <br><br>
+     <h2 class="button-accordion">FOSTERING U.S.-ISRAEL COOPERATION</h2>
+     <div class="box-accordion">
+     <strong>SECURING OUR ENERGY RESOURCES</strong><br>
+          Energy security is a key interest of the United States and Israel. The U.S.-Israel Energy Cooperation Program, funded annually by Congress and matched dollar-for-dollar by Israel, has set the stage for long-term strategic cooperation in the development of alternative fuels and new energy technologies. Large natural gas discoveries off the coast of Israel have spurred efforts in both countries to expand ties at all levels of the public and private sectors.
+          <br><br>
+          As natural gas continues to play an important role globally, particularly for America and Israel, both nations are poised to be leaders in jointly developing new technologies to maximize this opportunity. The 2014 U.S-Israel Strategic Partnership Act, passed by Congress and signed into law, fundamentally expands the framework of the bilateral energy relationship. Israel Energy Minister Yuval Steinitz and U.S. Energy Secretary Ernest Moniz met several times in late 2015, and continue to deepen the relationship between their agencies and enhance cooperation on key issues.
+     </div><br>
+     <h2 class="button-accordion">TRANSPORTATION</h2>
+     <div class="box-accordion">
+     Gasoline's monopoly over the global transportation
+sector is a strategic vulnerability that exposes the West to a dangerous dependence on unstable and often hostile regimes. Together with private and international partners, Israel is investing in the research, development and deployment necessary to create alternative fuels, run pilot programs and help move proven technologies to market.<br><br>
+ This is the hope of Israel's Fuel Choice Initiative, a marquee national program designed to systematically address the issue of oil dependence. Its objectives are ambitious - reducing Israel's gasoline usage 30 percent by 2025 and 60 percent by 2030. Israel is seeking to leverage its new natural gas resources in this pursuit. This initiative has seen remarkable success in its early years. Since 2013, the number of Israel's alternative fuels firms has increased fivefold. The American Israel Education Foundation's (AIEF) first ever Energy Security Mission to Israel included attending the Fuel Choices Summit in Tel Aviv in 2014. Participants enjoyed the opportunity to study the issues in-depth, hear directly from Prime Minister Benjamin Netanyahu and meet an array of Israeli innovators hoping to transform the transportation sector. 
+     </div>
+     <br>
+     <h2 class="button-accordion">WATER</h2>
+     <div class="box-accordion">
+          A global leader in water technology, Israel currently recycles over 80 percent of its water and is aiming to recycle 95 percent by 2020. Just as Israel has shared its groundbreaking drip irrigation methods with arid-land countries throughout the Middle East and Africa, today its revolutionary water recycling technologies are exported globally to those in need in other parts of the world - including the United States.
+          <br><br>
+          Israeli-owned company IDE Technologies implemented a transformative water desalination solution along the coast of Southern California to help alleviate the region's water shortage. The plant uses IDE's reverse osmosis technology, which is gentle on the environment and more energy efficient than other systems. Part of a plan to generate nearly 10 percent of the region's water supply from desalinated water, the plant can produce 50 million gallons of drinking water per day.<br><br>
+          Launched at Google in 2015, the Israel-California Green-Tech Partnership aims to harness Israel's water innovation to combat the drought crisis in California.
+     </div>
+     <br>
+     <h2 class="button-accordion">RESEARCH AND DEVELOPMENT</h2>
+     <div class="box-accordion">
+     The Binational Industrial Research and Development Foundation (BIRD) facilitates U.S.-Israel cooperation in an array of fields, including agriculture, healthcare and homeland security. Connecting U.S. and Israeli companies for joint research and development and helping bring new technologies to market, BIRD has been involved in over 900 projects and has generated roughly $10 billion in revenue. BIRD launched a dedicated energy arm in 2008 to bring together the two countries in the joint development of new energy technologies, including renewables, alternative fuels, natural gas, water and energy efficiency solutions. Supporting collaboration between the U.S. Department of Energy and Israel's Ministry of Energy and Water, BIRD-Energy has facilitated nearly $50 million in U.S.-Israel cooperation.<br><br> The U.S.-Israel Strategic Partnership Act authorized the establishment of a Center of Excellence focused on encouraging and commercializing American and Israel innovation in the energy and water sectors. "As our closest ally in the Middle East, it is in our national strategic interest to work with Israel to promote energy innovation, research and development," said Senator Lisa Murkowski (R-AK), Chairwoman of the Senate Energy and Natural Resources Committee.
+     </div>
+     <br>
+     <h2 class="button-accordion">SOLAR POWER</h2>
+     <div class="box-accordion">
+     Israel is a world leader in the field of solar energy. Israeli expertise has been leveraged to improve sustainability around the world, including in the United States. Tesla Motors, an industry leader in electric vehicles, is partnering with Herzliya-based SolarEdge Technologies Inc. to create the Powerwall, a cost-effective rechargeable battery. Fueled by solar energy, the Powerwall is designed to be a more economical approach to providing power to the home.<br><br>
+     Israeli solar company Energiya recently completed construction of a 22.5-megawatt solar project in the United States. Built on 79 acres in Glynn County, Georgia, the project will soon be producing renewable electricity. Energiya has also partnered with the U.S. government to expand energy access in sub-Saharan Africa through the Department of Energy's "Beyond the Grid" initiative.
+<br><br>
+In Israel's Arava Valley, 100 Israeli-made robots clean solar panels of dust and debris every evening without using water. Frequent, automated cleaning improves energy production efficiency by up to 35 percent, and could remove a major barrier to operating solar facilities throughout the world. 
+     </div>
+     <br>
+     <h2 class="button-accordion">WHAT COMES NEXT</h2>
+     <div class="box-accordion">
+     <strong>SOLUTIONS FOR THE 21ST CENTURY</strong><br>
+     The United States and Israel share the goal of energy security, a central pillar of national security. Israel's Fuel Choice Initiative is poised to provide structure and predictability to the marketplace, positioning Israel as the home for innovative off-oil technologies by combining a long-term commitment to breaking from gasoline, with regulatory stability and partnerships with the private sector, academia, industry and international allies.
+<br><br>Together with the American company Noble Energy, Israel is developing vast natural gas fields that hold the potential to improve Israel's energy security and bolster its economy. The fields have already spurred powerful regional cooperation, as Israel has reached preliminary agreements with Jordan, Egypt and the Palestinian Authority to supply their energy needs.
+<br><br>
+The natural gas fields also establish a firm platform on which to further develop the U.S.-Israel energy relationship into new commercial and industrial partnerships, defense and homeland security cooperation, academic and research linkages and joint efforts to reduce gasoline's monopoly over the global transportation sector.
+<br><br>
+Through cooperation with the United States and its dedication to continued innovation, Israel is pursuing new energy policies, undertaking national initiatives and developing technologies to fundamentally change the Middle East and the world.
+     </div>
+	<br><br>
+     	<span class="partner-quote">"Israel is recognized as one of the most entrepreneurial and innovative countries in the world; it should be no surprise that much of the creative thinking and progress on energy transformation is coming out of this nation."
+</span><br><strong>GUIDO BARTELS</strong><br><i>GENERAL MANAGER, ENERGY & UTILITIES INDUSTRY, IBM AND CHAIRMAN, GLOBAL SMART GRID FEDERATION</i>
+		<br><br>
+     	<span class="partner-quote">"What these deals
+demonstrate is that gas can be a tool for partnerships that are commercial with strong, positive geopolitical benefits."</span><br><strong>CARLOS PASCUAL</strong><br><i>FORMER INTERNATIONAL ENERGY COORDINATOR, U.S. STATE DEPARTMENT </i>
+</div>
+
+<script>
+ $(function(){
+   $('.button-accordion').click(function(){
+     $(this).next().slideToggle();
+       $(this).toggleClass('open');
+       });
+      });
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="dashboard.css">
+  
+  <style>
+@charset "UTF-8";
+
+
+/* dashboard.css reset */
+body { background: transparent !important; }
+h1, h2, h3, h4, h5 { text-shadow: none; padding-left: 0; color: inherit;}
+* { -webkit-user-select: auto; }
+
+/*GLOBAL*/
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: #333;
+  background: #e4e4e4;
+  line-height: 1.3;
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.screen-wrap {
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 10px 10px 40px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #CFCFCF;
+  min-height: 100%;
+  border-top: none;
+  border-bottom: none;
+}
+
+a {
+  color: #26A;
+  text-decoration: none;
+}
+
+ul {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+li {
+  margin: 0.5em 0;
+}
+
+p {
+  margin: 1em 0;
+  word-break: break-word;
+}
+
+h1 {
+  margin: 5px 0 0;
+  text-align: center;
+  font-size: 1.75em;
+}
+
+h2 {
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #26A;
+  margin: 1em -10px;
+  padding: 0.8em 10px;
+}
+
+h3 {
+  margin: 1.5em 0 0.1em;
+}
+
+table {
+  margin: 1em 0;
+  font-size: 1em;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  max-width: 100%;
+}
+
+td {
+  border: 1px solid #ccc;
+  padding: 1px 2px;
+}
+
+@media screen and (max-width: 320px) {
+  table {
+    font-size: 0.9em;
+  }
+  td {
+    border: 1px solid #ccc;
+    padding: 2px 4px;
+  }
+}
+
+
+/*INDEX PAGE*/
+
+
+.topic-links {
+  padding: 0;
+}
+
+.topic-links a {
+  display: block;
+  margin: 1em 0;
+  padding: 0.8em 10px;
+  color: #fff;
+  background-color: #004B87;
+  background-image: url('[[icon-arrow-white.png]]');
+  background-size: 16px;
+  background-position: 98% center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.index-logo {
+  display: block;
+  margin: 15px auto 30px;
+  border-radius: 5px;
+  max-height: 120px;
+}
+
+
+/*TOPIC PAGE*/
+
+
+.shortcut-index {
+  margin: 0;
+  padding-left: 1.5em;
+}
+
+.shortcut-index li {
+  margin: 10px 0;
+  font-size: 1em;
+  color: #26A;
+  text-decoration: none;
+}
+
+.to-top {
+  margin: 1em 0;
+  display: inline-block;
+}
+
+
+/*TOPIC PAGE: ACCORDIONS*/
+
+
+.button-accordion {
+  margin: 15px 0 0;
+  padding: 14px 40px 14px 10px;
+  color: #FFF;
+  background-color: #26A;
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  text-align: left;
+}
+
+.button-accordion:after {
+  content: '▼';
+  font-size: 1.3em;
+  position: absolute;
+  bottom: 9px;
+  right: 15px;
+  color: #fff;
+}
+
+.button-accordion.open:after {
+  content: '▲';
+}
+
+.box-accordion {
+  background: #FFF;
+  padding: 10px 10px 10px;
+  word-wrap: break-word;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  display: none;
+}
+
+      /* CUSTOM COLORS */
+
+      h2,
+      .topic-links a,
+      .button-accordion {
+        background-color: #4276A0;
+      }
+
+      a,
+      .shortcut-index li {
+        color: #78A22F;
+      }
+
+</style>
+  
+  <style type="text/css">
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 95%;
+  }
+  body {
+    background: #002d6c;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+  }
+  #content {
+    min-height: 100%;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: 1px solid blue;
+    margin: 5px;
+    padding: 10px;
+    background: #f7f7f8;
+  }
+
+  h1 {
+    font-size: 110%;
+    line-height:1em;
+  }
+  h2 {
+    font-size: 85%;
+    line-height: 1.2em;
+    padding:0;
+    padding-bottom: .5em;
+    margin:0;
+    margin-left: 15px;
+  }
+  h3 {
+    line-height: 1em;
+    font-size: 100%;
+    padding: 15px;
+    margin:0;
+  }
+
+  p {
+    padding:0;
+    margin:1em;
+    margin-left: 30px;
+  }
+ 
+  
+  .disclaimer { background-color: #fffcaa;font-weight: bold;border-radius: 15px;padding: 10px;font-size: 14px;margin-bottom: 15px; }
+  .partner-header { background-color: #957b27;color: #fff;font-size: 22px;line-height: 29px;text-align: center;padding: 15px;border-radius: 15px; }
+  .partner-big { font-size: 24px;line-height: 31px;font-weight: bold; }
+  .partner-quote { color: #957b27;font-weight: bold; }
+  .button-accordion {
+	  background-color: #957b27;
+  }
+  .box-accordion {
+  	background: #d0c9b1;
+	border-radius: 0 0 15px 15px;
+  }
+  </style>
+  <title></title>
+</head>
+<body>
+<!-- body -->
+<div id="content">
+  <!--<div id="centeredmenu">
+    <ul>
+      <li><a id="mon-link" class="nav-first" href="#mon">Mon</a></li>    
+      <li><a id="tue-link" href="#wed">Tue</a></li>
+      <li><a id="wed-link" class="nav-last" href="#wed">Wed</a></li>
+    </ul>
+  </div>-->
+     <div style="clear: both;">&nbsp;</div>
+     <div class="partner-header"><span class="partner-big">MISSILE DEFENSE</span> COOPERATION</div>
+     <br>
+     The United States is committed to supporting its ally Israel, especially against terrorist threats emanating from Hamas, Hezbollah, and the world's leading state-sponsor of terrorism - Iran. Israel's sophisticated missile defense programs have protected countless lives by shielding Israeli citizens from rocket attacks. The United States and Israel have made significant investment in the development of these technologies, which pale in comparison to the value of lives and property these systems protects.
+     <br><br>
+     <h2 class="button-accordion">VITAL SUPPORT</h2>
+     <div class="box-accordion">
+     <strong>CLOSE COLLABORATION</strong><br>
+          The United States and Israel have developed advanced
+systems and techniques for protecting the safety of innocent civilians in each country. The United States has provided $1.3 billion in procurement funding for Israel's Iron Dome system - a mobile short-range air defense system that intercepts and destroys short-range rockets aimed at civilian populations. Additionally, since 2006, the United States has contributed $1.1billion for Israel's David's Sling system and $2.6 billion for Israel's Arrow program.
+<br><br>
+Together, Iron Dome, David's Sling and Arrow make up a complex and effective missile defense apparatus that will enable Israel to protect lives at home and on the battlefield, keeping its citizens out of harm's way.
+<br><br>
+In March 2016, the two allies conducted a joint missile defense drill as part of the biennial Juniper Cobra exercise.
+     </div><br>
+     <h2 class="button-accordion">IRON DOME</h2>
+     <div class="box-accordion">
+     <strong>ROCKET DEFENSE SYSTEM</strong><br>
+     The Iron Dome rocket defense system is an Israeli-developed platform that has been tremendously successful at intercepting terrorist rockets aimed at civilian populations. The idea for Iron Dome arose after Israel's 2006 war with Hezbollah, during which more than 4,000 rockets were launched into northern Israel, destroying civilian homes and lives. In 2014, Iron Dome proved invaluable, defending Israel's population from Hamas rocket attacks.<br><br>Iron Dome uses missiles to destroy short-range rockets and artillery shells in midair. Each battery covers an area roughly the size of a small city. <br><br>The system's computerized radar and tracking system
+calculates where an incoming rocket or mortar shell is likely to land and fires a guided Tamir missile to intercept the projectile when it is headed for a populated area. This ensures that interceptor missiles are not wasted on rockets that pose no threat to life or property.<br><br>Since 2011, the United States has invested $1.3 billion in the Iron Dome system, helping to ensure the safety and security of its closest ally in the Middle East. During 2014's Operation Protective Edge, Iron Dome successfully intercepted more than 730 terrorist rockets - 90 percent of which were launched at Israel's most populated cities - representing a substantial improvement over the previous operation in 2012. It has been called the most effective and combat-proven missile shield in existence. 
+     </div>
+     <br>
+     <h2 class="button-accordion">DAVID'S SLING</h2>
+     <div class="box-accordion">
+         <strong>MEDIUM-RANGE MISSILE DEFENSE</strong><br>
+         David's Sling is designed to provide Israel and the United States with effective and affordable protection against short- to medium-range ballistic missiles, long-range artillery rockets, aircraft and low-flying cruise missiles. The system will close the current operational coverage gap between Israel's lower-tier Iron Dome and higher-tier Arrow ballistic missile interceptor. Since 2006, America has provided $1.1 billion in research and development funding for David's Sling, and in 2008 signed a project agreement with Israel to co-develop the system. In December 2015, David's Sling passed its final series of tests, putting it on track for deployment in 2016. On March 1, the United States and Israel began delivering major components of the jointly-produced David's Sling missile defense system to the Israeli Air Force.
+     </div>
+     <br>
+     <h2 class="button-accordion">ARROW</h2>
+     <div class="box-accordion">
+     <strong>LONG-RANGE MISSILE DEFENSE</strong><br>
+     Arrow is the first operational missile defense system specifically designed and built to intercept and destroy long-range ballistic missiles with WMD warheads. The centerpiece of the U.S.-Israel cooperative defense relationship, the Arrow became the first theater missile defense system in the world to be deployed and is considered one of the most advanced defense technologies currently in active military service.<br><br>Arrow is the only operational system that has consistently proven that one missile can shoot down another at high altitudes and speeds. Arrow-2 has been operational since 2000, and the Arrow-3 will likely be operational in 2016, bringing with it the capability to intercept a missile above the earth's atmosphere. It is designed to counter over-the-horizon long-range strategic threats to Israel. In December 2015, Arrow-3 successfully intercepted a target in space. This was an important milestone on the path to readying the new system for production and deployment in 2016.<br><br>Compatible with U.S. missile defense systems, Arrow can intercept hostile missiles at ranges and speeds high enough to protect citizens and troops from the devastating impact of nuclear, chemical or biological weapons. The United States has invested $2.6 billion in the development of the Arrow program.
+     </div>
+     <br>
+     <h2 class="button-accordion">ISRAEL UNDER THREAT</h2>
+     <div class="box-accordion">
+     Israel is a democratic oasis in a neighborhood of hostile actors, many of whom have sworn to destroy it. Close vicinity to rocket fire from all directions makes it vulnerable to attack at all times. Armed groups on Israel's borders have thousands of rockets pointed at the Jewish state. The rockets held by Hamas and Hezbollah could strike every city in Israel.
+     </div>
+     <br>
+     <h2 class="button-accordion">IRANIAN MISSILE THREAT</h2>
+     <div class="box-accordion">
+     Iran has made explicit its intention to wipe Israel off the map. Iran's ballistic missiles have a range of 1,500 miles and are capable of carrying nuclear warheads. Together, the United States and Israel are working to develop the military technology and systems to defend against Iran's missile threat.
+     </div>
+     <br>
+     <h2 class="button-accordion">HEZBOLLAH'S ROCKETS AND MISSILES</h2>
+     <div class="box-accordion">
+     Israel shares a border in the north with Lebanon. Hezbollah, the Iranian-backed terrorist group, is based in Lebanon and has used its proximity to Israel to launch rockets and missiles into Israeli cities. Today, Hezbollah's extensive arsenal includes several thousand long-range, high-precision, heavy rockets and missiles capable of reaching most of Israel. Military planners estimate that Hezbollah will be able to launch up to a thousand rockets per day in a future conflict. The extensive threats to the Jewish state from Hezbollah makes Israel's missile defense program an absolute necessity to keep its people safe. 
+     </div>
+     <br>
+     <h2 class="button-accordion">TERRORIST BUILDUP IN GAZA</h2>
+     <div class="box-accordion">
+     The Gaza Strip is governed by the Palestinian terrorist group Hamas. Since taking control of Gaza in 2007, Hamas has used the Strip to smuggle weapons and launch thousands of attacks against Israel. The attacks from Gaza have been particularly difficult for the 300,000-plus Israelis living in Ashkelon, Sderot and Be'er Sheva.<br><br>In July 2014, the IDF launched Operation Protective Edge in response to rocket attacks from Hamas and other terror groups in Gaza aimed at Israeli civilian populations. In 50 days of fighting, more than 4,500 rockets were fired from Gaza, suspending daily life in Israel as millions sought protection in bomb shelters.
+<br><br>These missiles were provided to Hamas by Iran and have a maximum range of more than 90 miles, putting Tel Aviv, Jerusalem, Haifa and millions of Israelis in danger.
+     </div>
+	<br><br>
+     	<span class="partner-quote">"We're obviously tied
+very closely to Israel and what they've done with Iron Dome... that's good for them and it's good for the United States."
+</span><br><strong>VICE ADMIRAL JAMES SYRING</strong><br><i>DIRECTOR OF THE UNITED STATES MISSILE DEFENSE AGENCY</i>
+		<br><br>
+     	<span class="partner-quote">"Israeli civilians are alive today because of Iron Dome, and American taxpayers can be extremely proud of the contribution we have made to this lifesaving program."</span><br><strong>SENATOR JOHN MCCAIN (R-AZ)</strong><br><i>CHAIRMAN, SENATE ARMED SERVICES COMMITTEE</i>
+</div>
+
+<script>
+ $(function(){
+   $('.button-accordion').click(function(){
+     $(this).next().slideToggle();
+       $(this).toggleClass('open');
+       });
+      });
+</script>
+</body>
+</html>
+
+
