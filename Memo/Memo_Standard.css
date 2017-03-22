@@ -1,13 +1,5 @@
 @charset "UTF-8";
 
-
-/* dashboard.css reset */
-body { background: transparent !important; }
-h1, h2, h3, h4, h5 { text-shadow: none; padding-left: 0; color: inherit;}
-* { -webkit-user-select: auto; }
-
-/*GLOBAL*/
-
 html {
   margin: 0;
   padding: 0;
@@ -259,13 +251,14 @@ td {
 
 
   .disclaimer { background-color: #fffcaa;font-weight: bold;border-radius: 15px;padding: 10px;font-size: 14px;margin-bottom: 15px; }
+  .peace-header { font-weight: bold;font-size: 22px;line-height: 29px;text-align: center; }
+  .security-header { font-weight: bold;font-size: 22px;line-height: 29px;text-align: center; }
   .partner-header { background-color: #536d4a;color: #fff;font-size: 22px;line-height: 29px;text-align: center;padding: 15px;border-radius: 15px; }
   .partner-big { font-size: 24px;line-height: 31px;font-weight: bold; }
   .partner-quote { color: #536d4a;font-weight: bold; }
-  .button-accordion {
-	  background-color: #536d4a;
-  }
-  .box-accordion {
-  	background: #b9cfb1;
-	border-radius: 0 0 15px 15px;
-  }
+  .button-accordion { background-color: #536d4a; }
+  .memo-date { padding-top: 10px;border-top: 5px solid #000;font-weight: bold;font-size: 18px;line-height: 25px; }
+  .memo-header { font-weight: bold;font-size: 110%;line-height: 1.5em;text-align: center;padding: 15px 0; }
+  .memo-blurb { margin-bottom: 15px;border-bottom: 5px solid #000;font-weight: bold;padding-bottom: 15px;font-size: 90%;line-height: 1.2em; }
+  .memo-subhead { font-weight: bold;font-size: 90%;line-height: 1.2em; }
+  .box-accordion { background: #b9cfb1;border-radius: 0 0 15px 15px; }
