@@ -1,0 +1,271 @@
+@charset "UTF-8";
+
+
+/* dashboard.css reset */
+body { background: transparent !important; }
+h1, h2, h3, h4, h5 { text-shadow: none; padding-left: 0; color: inherit;}
+* { -webkit-user-select: auto; }
+
+/*GLOBAL*/
+
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  color: #333;
+  background: #e4e4e4;
+  line-height: 1.3;
+  font-size: 14px;
+  font-family: Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.screen-wrap {
+  min-width: 320px;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 10px 10px 40px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #CFCFCF;
+  min-height: 100%;
+  border-top: none;
+  border-bottom: none;
+}
+
+a {
+  color: #26A;
+  text-decoration: none;
+}
+
+ul {
+  margin: 1em 0;
+  padding-left: 1.5em;
+}
+
+li {
+  margin: 0.5em 0;
+}
+
+p {
+  margin: 1em 0;
+  word-break: break-word;
+}
+
+h1 {
+  margin: 5px 0 0;
+  text-align: center;
+  font-size: 1.75em;
+}
+
+h2 {
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #26A;
+  margin: 1em -10px;
+  padding: 0.8em 10px;
+}
+
+h3 {
+  margin: 1.5em 0 0.1em;
+}
+
+table {
+  margin: 1em 0;
+  font-size: 1em;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  max-width: 100%;
+}
+
+td {
+  border: 1px solid #ccc;
+  padding: 1px 2px;
+}
+
+@media screen and (max-width: 320px) {
+  table {
+    font-size: 0.9em;
+  }
+  td {
+    border: 1px solid #ccc;
+    padding: 2px 4px;
+  }
+}
+
+
+/*INDEX PAGE*/
+
+
+.topic-links {
+  padding: 0;
+}
+
+.topic-links a {
+  display: block;
+  margin: 1em 0;
+  padding: 0.8em 10px;
+  color: #fff;
+  background-color: #004B87;
+  background-image: url('[[icon-arrow-white.png]]');
+  background-size: 16px;
+  background-position: 98% center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.index-logo {
+  display: block;
+  margin: 15px auto 30px;
+  border-radius: 5px;
+  max-height: 120px;
+}
+
+
+/*TOPIC PAGE*/
+
+
+.shortcut-index {
+  margin: 0;
+  padding-left: 1.5em;
+}
+
+.shortcut-index li {
+  margin: 10px 0;
+  font-size: 1em;
+  color: #26A;
+  text-decoration: none;
+}
+
+.to-top {
+  margin: 1em 0;
+  display: inline-block;
+}
+
+
+/*TOPIC PAGE: ACCORDIONS*/
+
+
+.button-accordion {
+  margin: 15px 0 0;
+  padding: 14px 40px 14px 10px;
+  color: #FFF;
+  background-color: #26A;
+  font-size: 16px;
+  font-weight: bold;
+  display: block;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  text-align: left;
+}
+
+.button-accordion:after {
+  content: '▼';
+  font-size: 1.3em;
+  position: absolute;
+  bottom: 9px;
+  right: 15px;
+  color: #fff;
+}
+
+.button-accordion.open:after {
+  content: '▲';
+}
+
+.box-accordion {
+  background: #FFF;
+  padding: 10px 10px 10px;
+  word-wrap: break-word;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  display: none;
+}
+
+      /* CUSTOM COLORS */
+
+      h2,
+      .topic-links a,
+      .button-accordion {
+        background-color: #4276A0;
+      }
+
+      a,
+      .shortcut-index li {
+        color: #78A22F;
+      }
+
+</style>
+
+  <style type="text/css">
+  html, body {
+    margin: 0;
+    padding: 0;
+    height: 95%;
+  }
+  body {
+    background: #002d6c;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+  }
+  #content {
+    min-height: 100%;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: 1px solid blue;
+    margin: 5px;
+    padding: 10px;
+    background: #f7f7f8;
+  }
+
+  h1 {
+    font-size: 110%;
+    line-height:1em;
+  }
+  h2 {
+    font-size: 85%;
+    line-height: 1.2em;
+    padding:0;
+    padding-bottom: .5em;
+    margin:0;
+    margin-left: 15px;
+  }
+  h3 {
+    line-height: 1em;
+    font-size: 100%;
+    padding: 15px;
+    margin:0;
+  }
+
+  p {
+    padding:0;
+    margin:1em;
+    margin-left: 30px;
+  }
+
+
+  .disclaimer { background-color: #fffcaa;font-weight: bold;border-radius: 15px;padding: 10px;font-size: 14px;margin-bottom: 15px; }
+  .partner-header { background-color: #536d4a;color: #fff;font-size: 22px;line-height: 29px;text-align: center;padding: 15px;border-radius: 15px; }
+  .partner-big { font-size: 24px;line-height: 31px;font-weight: bold; }
+  .partner-quote { color: #536d4a;font-weight: bold; }
+  .button-accordion {
+	  background-color: #536d4a;
+  }
+  .box-accordion {
+  	background: #b9cfb1;
+	border-radius: 0 0 15px 15px;
+  }

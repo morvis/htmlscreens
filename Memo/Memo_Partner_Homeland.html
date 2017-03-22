@@ -1,299 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="dashboard.css">
-  
-  <style>
-@charset "UTF-8";
-
-
-/* dashboard.css reset */
-body { background: transparent !important; }
-h1, h2, h3, h4, h5 { text-shadow: none; padding-left: 0; color: inherit;}
-* { -webkit-user-select: auto; }
-
-/*GLOBAL*/
-
-html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  color: #333;
-  background: #e4e4e4;
-  line-height: 1.3;
-  font-size: 14px;
-  font-family: Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-
-body {
-  margin: 0 auto;
-  padding: 0;
-}
-
-.screen-wrap {
-  min-width: 320px;
-  max-width: 640px;
-  margin: 0 auto;
-  padding: 10px 10px 40px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  background: #fff;
-  border: 1px solid #CFCFCF;
-  min-height: 100%;
-  border-top: none;
-  border-bottom: none;
-}
-
-a {
-  color: #26A;
-  text-decoration: none;
-}
-
-ul {
-  margin: 1em 0;
-  padding-left: 1.5em;
-}
-
-li {
-  margin: 0.5em 0;
-}
-
-p {
-  margin: 1em 0;
-  word-break: break-word;
-}
-
-h1 {
-  margin: 5px 0 0;
-  text-align: center;
-  font-size: 1.75em;
-}
-
-h2 {
-  font-size: 1.2em;
-  color: #fff;
-  background-color: #26A;
-  margin: 1em -10px;
-  padding: 0.8em 10px;
-}
-
-h3 {
-  margin: 1.5em 0 0.1em;
-}
-
-table {
-  margin: 1em 0;
-  font-size: 1em;
-  border-collapse: collapse;
-  border: 1px solid #ccc;
-  max-width: 100%;
-}
-
-td {
-  border: 1px solid #ccc;
-  padding: 1px 2px;
-}
-
-@media screen and (max-width: 320px) {
-  table {
-    font-size: 0.9em;
-  }
-  td {
-    border: 1px solid #ccc;
-    padding: 2px 4px;
-  }
-}
-
-
-/*INDEX PAGE*/
-
-
-.topic-links {
-  padding: 0;
-}
-
-.topic-links a {
-  display: block;
-  margin: 1em 0;
-  padding: 0.8em 10px;
-  color: #fff;
-  background-color: #004B87;
-  background-image: url('[[icon-arrow-white.png]]');
-  background-size: 16px;
-  background-position: 98% center;
-  background-repeat: no-repeat;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.index-logo {
-  display: block;
-  margin: 15px auto 30px;
-  border-radius: 5px;
-  max-height: 120px;
-}
-
-
-/*TOPIC PAGE*/
-
-
-.shortcut-index {
-  margin: 0;
-  padding-left: 1.5em;
-}
-
-.shortcut-index li {
-  margin: 10px 0;
-  font-size: 1em;
-  color: #26A;
-  text-decoration: none;
-}
-
-.to-top {
-  margin: 1em 0;
-  display: inline-block;
-}
-
-
-/*TOPIC PAGE: ACCORDIONS*/
-
-
-.button-accordion {
-  margin: 15px 0 0;
-  padding: 14px 40px 14px 10px;
-  color: #FFF;
-  background-color: #26A;
-  font-size: 16px;
-  font-weight: bold;
-  display: block;
-  border-radius: 5px;
-  cursor: pointer;
-  position: relative;
-  z-index: 2;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  text-align: left;
-}
-
-.button-accordion:after {
-  content: '▼';
-  font-size: 1.3em;
-  position: absolute;
-  bottom: 9px;
-  right: 15px;
-  color: #fff;
-}
-
-.button-accordion.open:after {
-  content: '▲';
-}
-
-.box-accordion {
-  background: #FFF;
-  padding: 10px 10px 10px;
-  word-wrap: break-word;
-  border: none;
-  border-radius: 0;
-  margin: 0;
-  display: none;
-}
-
-      /* CUSTOM COLORS */
-
-      h2,
-      .topic-links a,
-      .button-accordion {
-        background-color: #4276A0;
-      }
-
-      a,
-      .shortcut-index li {
-        color: #78A22F;
-      }
-
-</style>
-  
-  <style type="text/css">
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 95%;
-  }
-  body {
-    background: #002d6c;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 16px;
-  }
-  #content {
-    min-height: 100%;
-    -moz-border-radius: 15px;
-    border-radius: 15px;
-    border: 1px solid blue;
-    margin: 5px;
-    padding: 10px;
-    background: #f7f7f8;
-  }
-
-  h1 {
-    font-size: 110%;
-    line-height:1em;
-  }
-  h2 {
-    font-size: 85%;
-    line-height: 1.2em;
-    padding:0;
-    padding-bottom: .5em;
-    margin:0;
-    margin-left: 15px;
-  }
-  h3 {
-    line-height: 1em;
-    font-size: 100%;
-    padding: 15px;
-    margin:0;
-  }
-
-  p {
-    padding:0;
-    margin:1em;
-    margin-left: 30px;
-  }
- 
-  
-  .disclaimer { background-color: #fffcaa;font-weight: bold;border-radius: 15px;padding: 10px;font-size: 14px;margin-bottom: 15px; }
-  .partner-header { background-color: #9b1516;color: #fff;font-size: 22px;line-height: 29px;text-align: center;padding: 15px;border-radius: 15px; }
-  .partner-big { font-size: 24px;line-height: 31px;font-weight: bold; }
-  .partner-quote { color: #9b1516;font-weight: bold; }
-  .button-accordion {
-	  background-color: #9b1516;
-  }
-  .box-accordion {
-  	background: #cfb1b1;
-	border-radius: 0 0 15px 15px;
-  }
-  </style>
-  <title></title>
-</head>
-<body>
-<!-- body -->
 <div id="content">
-  <!--<div id="centeredmenu">
-    <ul>
-      <li><a id="mon-link" class="nav-first" href="#mon">Mon</a></li>    
-      <li><a id="tue-link" href="#wed">Tue</a></li>
-      <li><a id="wed-link" class="nav-last" href="#wed">Wed</a></li>
-    </ul>
-  </div>-->
      <div style="clear: both;">&nbsp;</div>
      <div class="partner-header"><span class="partner-big">HOMELAND SECURITY</span> COOPERATION</div>
      <br>
-     Israel has emerged as a leader in developing techniques and technologies for homeland security and counterterrorism. Today, Israel is working with the U.S. government and the private sector to design systems and equipment aimed at thwarting terrorism and safeguarding citizens from both nations. The United States and Israel are exploring cooperation in new areas, from wearable technologies to cyber protection of critical infrastrature. 
+     Israel has emerged as a leader in developing techniques and technologies for homeland security and counterterrorism. Today, Israel is working with the U.S. government and the private sector to design systems and equipment aimed at thwarting terrorism and safeguarding citizens from both nations. The United States and Israel are exploring cooperation in new areas, from wearable technologies to cyber protection of critical infrastrature.
      <br><br>
      <h2 class="button-accordion">TECH SOLUTIONS</h2>
      <div class="box-accordion">
@@ -302,7 +11,7 @@ td {
      </div><br>
      <h2 class="button-accordion">CYBER EXPERTISE</h2>
      <div class="box-accordion">
-     Leaders from around the world visited Israel in January 2016 for CyberTech, the world's largest exhibition of cyber technologies. The conference presented strategies, solutions and technologies to address the global cyber threat to finance, transportation, utilities, defense, research and development, manufacturing, telecommunication, health and government.<br><br>Israel is a leader in cyber. The Israel Defense Forces are creating a unified cyber command, which will act as Israel's first line of defense against hijackings and other online threats. 
+     Leaders from around the world visited Israel in January 2016 for CyberTech, the world's largest exhibition of cyber technologies. The conference presented strategies, solutions and technologies to address the global cyber threat to finance, transportation, utilities, defense, research and development, manufacturing, telecommunication, health and government.<br><br>Israel is a leader in cyber. The Israel Defense Forces are creating a unified cyber command, which will act as Israel's first line of defense against hijackings and other online threats.
      </div>
      <br>
      <h2 class="button-accordion">PREPAREDNESS</h2>
@@ -327,7 +36,7 @@ td {
      <br>
      <h2 class="button-accordion">UNMANNED SYSTEMS</h2>
      <div class="box-accordion">
-     The Pentagon awarded Israeli company Roboteam Ltd. a $25 million contract in 2015 to provide advanced unmanned systems that save soldiers' lives. Roboteam has created a collection of portable, lightweight and inexpensive bots that are able to climb stairs, see around corners and detect possible traps. Roboteam's robots made their debut fighting Hamas terror tunnels. 
+     The Pentagon awarded Israeli company Roboteam Ltd. a $25 million contract in 2015 to provide advanced unmanned systems that save soldiers' lives. Roboteam has created a collection of portable, lightweight and inexpensive bots that are able to climb stairs, see around corners and detect possible traps. Roboteam's robots made their debut fighting Hamas terror tunnels.
      </div>
      <br>
      <h2 class="button-accordion">EMERGENCY MANAGEMENT</h2>
@@ -347,7 +56,7 @@ td {
      <br>
      <h2 class="button-accordion">SCIENCE AND TECHNOLOGY</h2>
      <div class="box-accordion">
-     Israel's National Cyber Bureau, together with its entrepreneurial private sector, has produced world-leading cyber technologies that are being employed in the United States. In 2015, New York signed an agreement with Israeli authorities to protect its critical state-wide water and power infrastructure. Cybersecurity was an important focus of the 2014 MOU signed by California Governor Jerry Brown and Prime Minister Netanyahu. Nationally, the Department of Homeland Security continues to work with its Israeli counterparts to deepen cooperation. 
+     Israel's National Cyber Bureau, together with its entrepreneurial private sector, has produced world-leading cyber technologies that are being employed in the United States. In 2015, New York signed an agreement with Israeli authorities to protect its critical state-wide water and power infrastructure. Cybersecurity was an important focus of the 2014 MOU signed by California Governor Jerry Brown and Prime Minister Netanyahu. Nationally, the Department of Homeland Security continues to work with its Israeli counterparts to deepen cooperation.
      </div>
 	<br><br>
      	<span class="partner-quote">"Israel has become a laboratory for developing the best tactics and indigenous technologies. U.S. law enforcement can only benefit from this expertise and innovation."
@@ -357,7 +66,7 @@ td {
 		<br><br>
      	<span class="partner-quote">"There is no other country that shares the same values and overarching goal to allow others to live in peace. We share the same threats where nations wish to obliterate our way of life and our very lives from the face of the earth. We are both democracies with the messy argumentative style government that allow all persons to have a voice and a vote. Our only friend in a very dangerous part of the world. We share many bonds and each needs the other."</span><br><strong>SHERIFF LARRY AMERSON</strong><br><i>CALHOUN COUNTY, ALABAMA</i>
     <strong>DID YOU KNOW?</strong><br>
-    In 2014, Congress, working closely with the pro-Israel community, passed legislation authorizing new U.S.-Israel research pilot programs in emergency services, explosives detection and border, maritime and aviation security. 
+    In 2014, Congress, working closely with the pro-Israel community, passed legislation authorizing new U.S.-Israel research pilot programs in emergency services, explosives detection and border, maritime and aviation security.
 </div>
 
 <script>
@@ -368,7 +77,3 @@ td {
        });
       });
 </script>
-</body>
-</html>
-
-
