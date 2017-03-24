@@ -262,3 +262,5 @@ td {
   .memo-blurb { margin-bottom: 15px;border-bottom: 5px solid #000;font-weight: bold;padding-bottom: 15px;font-size: 90%;line-height: 1.2em; }
   .memo-subhead { font-weight: bold;font-size: 90%;line-height: 1.2em; }
   .box-accordion { background: #b9cfb1;border-radius: 0 0 15px 15px; }
+  .issue-brief-header { text-align: center;font-size: 30px; line-height: 37px;font-weight: bold; }
+  .issue-brief-subhead { font-weight: bold;font-size: 18px;line-height: 25px; }
